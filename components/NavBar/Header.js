@@ -64,6 +64,13 @@ const NavBar = () => {
       to: '/search',
       icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
+    },
+    {
+      id: 5,
+      name: t.NAV.ABOUT,
+      to: '/about',
+      icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
+      show: BLOG.pagesShow.about
     }
   ]
   return (
@@ -85,7 +92,6 @@ const NavBar = () => {
                   </div>
                 </li>
               </Link>
-
             )
         )}
       </ul>
@@ -96,7 +102,8 @@ const NavBar = () => {
       {/* Mobile Phone Menu */}
       <div className='md:hidden mr-2 block '>
         <button
-          type='button' aria-label='Menu'
+          type='button'
+          aria-label='Menu'
           onClick={() => setShowMenu((showMenu) => !showMenu)}
           className='hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block p-2 -mr-3 md:pb-3'
         >
