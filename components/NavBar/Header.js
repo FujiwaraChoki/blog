@@ -9,7 +9,8 @@ import {
   CollectionIcon,
   SparklesIcon,
   SearchIcon,
-  MenuIcon
+  MenuIcon,
+  AcademicCapIcon
 } from '@heroicons/react/outline'
 import Social from '../Common/Social.js'
 import ThemeSwitcher from './ThemeSwitcher.js'
@@ -52,6 +53,13 @@ const NavBar = () => {
       show: BLOG.pagesShow.notes
     },
     {
+      id: 5,
+      name: t.NAV.ABOUT,
+      to: '/about',
+      icon: <AcademicCapIcon className='inline-block mb-1 h-5 w-5' />,
+      show: BLOG.pagesShow.about
+    },
+    {
       id: 3,
       name: t.NAV.PROJECTS,
       to: '/projects',
@@ -64,13 +72,6 @@ const NavBar = () => {
       to: '/search',
       icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
-    },
-    {
-      id: 5,
-      name: t.NAV.ABOUT,
-      to: '/about',
-      icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.about
     }
   ]
   return (
