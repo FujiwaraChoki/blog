@@ -1,10 +1,10 @@
 const BLOG = {
-  title: 'Notionic',
-  author: '左蓝',
-  email: 'i@zuolan.me',
-  link: 'https://zuolan.me',
-  newsletter: 'Notionic Weekly',
-  description: 'A static blog build on top of Notion and Next.js',
+  title: 'Sami Hindi | Blog',
+  author: 'Sami Hindi',
+  email: 'sami@samihindi.com',
+  link: 'https://blog.samihindi.com',
+  newsletter: 'Sami Hindis Blog',
+  description: 'The Blog of Sami Hindi, built with Notion and Next.js',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
@@ -16,35 +16,35 @@ const BLOG = {
   sortByDate: true,
   pagesShow: {
     newsletter: true,
-    notes: true,
+    notes: false,
     projects: true,
     contact: true,
-    books: true,
-    friends: true
+    books: false,
+    friends: false
   },
   showWeChatPay: true,
   previewImagesEnabled: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
-  ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
-  defaultCover: '/cover.jpg',
+  ogImageGenerateHost:
+    'https://og-zl.vercel.app/api/default?border=none&description=Tech%20%26%20Sec%20%26%20News&siteName=Sami%20Hindis%20Blog&summary=Full-Stack%20Software%20Engineer&theme=light&title=Sami%20Hindi', // The link to generate OG image, don't end with a slash
+  defaultCover: 'https://source.unsplash.com/random/800x600?', // The default cover image of your blog, don't end with a slash
   socialLink: {
-    twitter: 'https://twitter.com/izuolan',
-    github: 'https://github.com/izuolan',
-    telegram: 'https://t.me/zuolan'
+    twitter: 'https://twitter.com/chokifujiwara',
+    github: 'https://github.com/FujiwaraChoki',
+    telegram: 'https://t.me/bv_crack'
   },
   seo: {
-    keywords: ['Notionic', 'Zuolan', 'Blog'],
+    keywords: ['Sami Hindi', 'GitHub', 'Blog'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
   notionSpacesId: process.env.NOTION_SPACES_ID, // DO NOT CHANGE THIS! Edit .env file!
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
-  notionDomain: 'izuolan.notion.site',
+  notionDomain: 'sami-hindi.notion.site',
   telegramToken: process.env.TELEGRAM_TOKEN, // The token of your Telegram bot
   telegramChatId: '263895784', // The chat id of your Telegram bot
-  telegramChannelUrl: 'https://channel.zuolan.me/', // The link of your Telegram channel
-  telegramChannelName: 'zuolan_me', // The name of your Telegram channel
-  craftConfigShareUrl: 'https://www.craft.do/s/kQtcWqkv98cHhB', // The link to share your craft config
+  telegramChannelUrl: 'https://t.me/+sJuxlgstaE82YjRk', // The link of your Telegram channel
+  telegramChannelName: 'Blog', // The name of your Telegram channel
   analytics: {
     provider: '', // Currently we support Google Analytics, Ackee, Umami and Cloudflare Insights, please fill with 'ga' or 'ackee' or 'umami' or 'cf', leave it empty to disable it.
     ackeeConfig: {
