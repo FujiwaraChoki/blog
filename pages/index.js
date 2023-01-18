@@ -36,6 +36,11 @@ export async function getStaticProps() {
 const blog = ({ postsToShow, page, showNext, blockMap }) => {
   return (
     <Container title={BLOG.title} description={BLOG.description}>
+      <script
+        async
+        src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782'
+        crossorigin='anonymous'
+      ></script>
       <Hero blockMap={blockMap} />
       {postsToShow.map((post) => (
         <BlogPost key={post.id} post={post} />

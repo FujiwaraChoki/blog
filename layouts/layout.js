@@ -17,25 +17,31 @@ import TagItem from '@/components/Common/TagItem'
 import { ChevronLeftIcon } from '@heroicons/react/outline'
 import { motion } from 'framer-motion'
 
-const Code = dynamic(() =>
-  import('react-notion-x/build/third-party/code').then(async (m) => {
-    // additional prism syntaxes
-    await Promise.all([
-      import('prismjs/components/prism-markup.js'),
-      import('prismjs/components/prism-bash.js'),
-      import('prismjs/components/prism-diff.js'),
-      import('prismjs/components/prism-go.js'),
-      import('prismjs/components/prism-rust.js'),
-      import('prismjs/components/prism-yaml.js'),
-      import('prismjs/components/prism-javascript.js'),
-      import('prismjs/components/prism-typescript.js')
-    ])
-    return m.Code
-  }), { ssr: true }
+const Code = dynamic(
+  () =>
+    import('react-notion-x/build/third-party/code').then(async (m) => {
+      // additional prism syntaxes
+      await Promise.all([
+        import('prismjs/components/prism-markup.js'),
+        import('prismjs/components/prism-bash.js'),
+        import('prismjs/components/prism-diff.js'),
+        import('prismjs/components/prism-go.js'),
+        import('prismjs/components/prism-rust.js'),
+        import('prismjs/components/prism-yaml.js'),
+        import('prismjs/components/prism-javascript.js'),
+        import('prismjs/components/prism-typescript.js')
+      ])
+      return m.Code
+    }),
+  { ssr: true }
 )
 
-const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection').then((m) => m.Collection), { ssr: true }
+const Collection = dynamic(
+  () =>
+    import('react-notion-x/build/third-party/collection').then(
+      (m) => m.Collection
+    ),
+  { ssr: true }
 )
 
 // const Equation = dynamic(() =>
@@ -96,15 +102,30 @@ function delRepeatCode(codeCopy, subPage) {
   const codeSecondLast = codeEnd.childNodes[length - 2]
   // console.log('codeSecondLast', codeSecondLast)
   // console.log('codeLast', codeLast)
-  if (subPage && codeEnd.childNodes.length > 1 && codeLast.nodeName === '#text' && codeSecondLast.nodeName === '#text') {
+  if (
+    subPage &&
+    codeEnd.childNodes.length > 1 &&
+    codeLast.nodeName === '#text' &&
+    codeSecondLast.nodeName === '#text'
+  ) {
     codeLast.nodeValue = null
   }
-  if (!subPage && codeEnd.childNodes.length > 1 && codeLast.nodeName === '#text') {
+  if (
+    !subPage &&
+    codeEnd.childNodes.length > 1 &&
+    codeLast.nodeName === '#text'
+  ) {
     codeLast.nodeValue = null
   }
 }
 
-const Layout = ({ children, blockMap, frontMatter, fullWidth = false, subPage = false }) => {
+const Layout = ({
+  children,
+  blockMap,
+  frontMatter,
+  fullWidth = false,
+  subPage = false
+}) => {
   const [showSubPageTitle, setShowSubPageTitle] = useState(false)
   const { locale } = useRouter()
 
@@ -132,7 +153,9 @@ const Layout = ({ children, blockMap, frontMatter, fullWidth = false, subPage = 
 
   return (
     <Container
-      title={`${frontMatter.title}${showSubPageTitle ? ' | ' + subPageTitle : ''}`}
+      title={`${frontMatter.title}${
+        showSubPageTitle ? ' | ' + subPageTitle : ''
+      }`}
       description={frontMatter.summary}
       // date={new Date(frontMatter.publishedAt).toISOString()}
       type='article'
@@ -141,7 +164,11 @@ const Layout = ({ children, blockMap, frontMatter, fullWidth = false, subPage = 
       <motion.div className='flex flex-row'>
         <article className='flex-none md:overflow-x-visible overflow-x-scroll w-full'>
           {showSubPageTitle && (
-            <Link passHref href={`${BLOG.path}/${frontMatter.slug}`} scroll={false}>
+            <Link
+              passHref
+              href={`${BLOG.path}/${frontMatter.slug}`}
+              scroll={false}
+            >
               <a className='text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 transition duration-100'>
                 <ChevronLeftIcon className='inline-block mb-1 h-5 w-5' />
                 <span className='m-1'>{frontMatter.title}</span>
