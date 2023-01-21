@@ -70,7 +70,7 @@ const NavBar = () => {
     {
       id: 5,
       name: t.NAV.VIDEOS,
-      to: '/videos',
+      to: '/vids',
       icon: <VideoCameraIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.videos
     },
