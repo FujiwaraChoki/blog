@@ -8,7 +8,7 @@ const SupaComments = () => {
     const script = document.createElement('script')
     const anchor = document.getElementById('comments')
     script.setAttribute('src', `/comments/comments-${locale}.js`)
-    script.setAttribute('crossorigin', 'anonymous')
+    script.setAttribute('crossOrigin', 'anonymous')
     script.setAttribute('async', true)
     anchor.appendChild(script)
     return () => {

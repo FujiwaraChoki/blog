@@ -10,22 +10,24 @@
 // import 'prismjs/themes/prism-tomorrow.min.css' // prism-okaidia.min.css
 import 'react-notion-x/src/styles.css'
 import 'katex/dist/katex.min.css'
-import '@/styles/globals.css'
-import '@/styles/notion.css'
-import BLOG from '@/blog.config'
+import '../styles/globals.css'
+import '../styles/notion.css'
+import BLOG from '../blog.config'
 import dynamic from 'next/dynamic'
-import Scripts from '@/components/Common/Scripts'
+import Scripts from '../components/Common/Scripts'
 import { ThemeProvider } from 'next-themes'
-import TransitionEffect from '@/components/Common/TransitionEffect'
+import TransitionEffect from '../components/Common/TransitionEffect'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import NProgress from 'nprogress'
-import '@/styles/nprogress.css'
-import Header from '@/components/NavBar/Header'
-import Footer from '@/components/NavBar/Footer'
+import '../styles/nprogress.css'
+import Header from '../components/NavBar/Header'
+import Footer from '../components/NavBar/Footer'
 
-const Ackee = dynamic(() => import('@/components/Common/Ackee'), { ssr: false })
-const Gtag = dynamic(() => import('@/components/Common/Gtag'), { ssr: false })
+const Ackee = dynamic(() => import('../components/Common/Ackee'), {
+  ssr: false
+})
+const Gtag = dynamic(() => import('../components/Common/Gtag'), { ssr: false })
 
 function MyApp({ Component, pageProps }) {
   // https://github.com/vercel/next.js/blob/canary/examples/with-loading/pages/_app.js
@@ -67,13 +69,13 @@ function MyApp({ Component, pageProps }) {
           fullWidth={pageProps.post ? pageProps.post.fullWidth : false}
         />
         <TransitionEffect>
-            <div
-              className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${
-                BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
-              }`}
-            >
-              <Component {...pageProps} />
-            </div>
+          <div
+            className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${
+              BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
+            }`}
+          >
+            <Component {...pageProps} />
+          </div>
         </TransitionEffect>
         <Footer fullWidth={pageProps.post ? pageProps.post.fullWidth : false} />
       </ThemeProvider>

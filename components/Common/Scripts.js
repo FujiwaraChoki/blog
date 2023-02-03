@@ -1,5 +1,5 @@
 import Script from 'next/script'
-import BLOG from '@/blog.config'
+import BLOG from '../../blog.config'
 
 const Scripts = () => (
   <>

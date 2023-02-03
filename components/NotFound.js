@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { lang } from '@/lib/lang'
+import { lang } from '../lib/lang'
 import { useRouter } from 'next/router'
 
 const Page404 = ({ statusCode }) => {

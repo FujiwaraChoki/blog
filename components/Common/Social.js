@@ -1,12 +1,13 @@
 import Link from 'next/link'
-import BLOG from '@/blog.config'
+import BLOG from '../../blog.config'
 
 const Social = () => {
   return (
     <div className='flex gap-4'>
       <Link href={`${BLOG.socialLink.telegram}`} scroll={false}>
         <a
-          target='_blank' aria-label='Telegram'
+          target='_blank'
+          aria-label='Telegram'
           className='text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100'
         >
           <svg
@@ -24,7 +25,8 @@ const Social = () => {
       </Link>
       <Link href={`${BLOG.socialLink.twitter}`} scroll={false}>
         <a
-          target='_blank' aria-label='Twitter'
+          target='_blank'
+          aria-label='Twitter'
           className='text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100'
         >
           <svg
@@ -42,7 +44,8 @@ const Social = () => {
       </Link>
       <Link href={`${BLOG.socialLink.github}`} scroll={false}>
         <a
-          target='_blank' aria-label='Github'
+          target='_blank'
+          aria-label='Github'
           className='text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100'
         >
           <svg

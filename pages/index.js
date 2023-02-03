@@ -1,9 +1,9 @@
-import Container from '@/components/Container'
-import BlogPost from '@/components/BlogPost'
-import Hero from '@/components/Hero/Home'
-import Pagination from '@/components/Pagination'
-import { getAllPosts, getPostBlocks } from '@/lib/notion'
-import BLOG from '@/blog.config'
+import Container from '../components/Container'
+import BlogPost from '../components/BlogPost'
+import Hero from '../components/Hero/Home'
+import Pagination from '../components/Pagination'
+import { getAllPosts, getPostBlocks } from '../lib/notion'
+import BLOG from '../blog.config'
 
 export async function getStaticProps() {
   const posts = await getAllPosts({ onlyPost: true })
@@ -39,7 +39,7 @@ const blog = ({ postsToShow, page, showNext, blockMap }) => {
       <script
         async
         src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782'
-        crossorigin='anonymous'
+        crossOrigin='anonymous'
       ></script>
       <Hero blockMap={blockMap} />
       {postsToShow.map((post) => (

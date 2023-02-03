@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import BLOG from '@/blog.config'
-import formatDate from '@/lib/formatDate'
+import BLOG from '../blog.config'
+import formatDate from '../lib/formatDate'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 

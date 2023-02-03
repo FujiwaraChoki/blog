@@ -1,5 +1,5 @@
-import { getAllPosts } from '@/lib/notion'
-import { generateRss } from '@/lib/rss'
+import { getAllPosts } from '../lib/notion'
+import { generateRss } from '../lib/rss'
 // import { generateRss } from '@/lib/rssContent'
 export async function getServerSideProps({ res }) {
   res.setHeader('Content-Type', 'text/xml')

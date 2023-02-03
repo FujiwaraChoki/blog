@@ -1,5 +1,5 @@
-import SEO from '@/components/Common/SEO'
-import BLOG from '@/blog.config'
+import SEO from '../components/Common/SEO'
+import BLOG from '../blog.config'
 import PropTypes from 'prop-types'
 
 const Container = ({ children, fullWidth, ...customMeta }) => {

@@ -1,20 +1,20 @@
-import BLOG from '@/blog.config'
+import BLOG from '../../blog.config'
 import Link from 'next/link'
 import Avatar from './NotionAvatar.js'
 import Social from '../Common/Social.js'
-import { lang } from '@/lib/lang'
+import { lang } from '../../lib/lang'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import {
-  MailIcon,
-  RssIcon,
-  ClipboardCheckIcon
-} from '@heroicons/react/outline'
+import { MailIcon, RssIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 import dynamic from 'next/dynamic'
 import { NotionRenderer } from 'react-notion-x'
 
-const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection').then((m) => m.Collection), { ssr: true }
+const Collection = dynamic(
+  () =>
+    import('react-notion-x/build/third-party/collection').then(
+      (m) => m.Collection
+    ),
+  { ssr: true }
 )
 
 const Hero = ({ blockMap }) => {
@@ -48,7 +48,9 @@ const Hero = ({ blockMap }) => {
                   <span className='text-xs text-gray-600 dark:text-day mb-1'>
                     {t.HERO.HOME.CONTACT_BUTTON_DES}
                   </span>
-                  <span className='font-medium'>{t.HERO.HOME.CONTACT_BUTTON}</span>
+                  <span className='font-medium'>
+                    {t.HERO.HOME.CONTACT_BUTTON}
+                  </span>
                 </span>
               </button>
             </Link>
