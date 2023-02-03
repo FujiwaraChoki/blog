@@ -23,6 +23,7 @@ import NProgress from 'nprogress'
 import '../styles/nprogress.css'
 import Header from '../components/NavBar/Header'
 import Footer from '../components/NavBar/Footer'
+import Head from 'next/head'
 
 const Ackee = dynamic(() => import('../components/Common/Ackee'), {
   ssr: false
@@ -55,6 +56,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <script
+          async
+          src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782'
+          crossorigin='anonymous'
+        ></script>
+      </Head>
       <Scripts />
       {BLOG.isProd && BLOG?.analytics?.provider === 'ackee' && (
         <Ackee
