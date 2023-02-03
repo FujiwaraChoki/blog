@@ -2,23 +2,25 @@ import BLOG from '@/blog.config'
 import Link from 'next/link'
 import Avatar from './NotionAvatar.js'
 import Social from '../Common/Social.js'
+import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { MailIcon, RssIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
+import {
+  MailIcon,
+  RssIcon,
+  ClipboardCheckIcon
+} from '@heroicons/react/outline'
 import dynamic from 'next/dynamic'
 import { NotionRenderer } from 'react-notion-x'
 
-const Collection = dynamic(
-  () =>
-    import('react-notion-x/build/third-party/collection').then(
-      (m) => m.Collection
-    ),
-  { ssr: true }
+const Collection = dynamic(() =>
+  import('react-notion-x/build/third-party/collection').then((m) => m.Collection), { ssr: true }
 )
 
 const Hero = ({ blockMap }) => {
   const [showCopied, setShowCopied] = useState(false)
   const { locale } = useRouter()
+  const t = lang[locale]
 
   const clickCopy = async () => {
     setShowCopied(true)
@@ -44,9 +46,9 @@ const Hero = ({ blockMap }) => {
                 <MailIcon className='inline-block text-gray-600 dark:text-day h-7 w-7' />
                 <span className='ml-4 flex items-start flex-col leading-none'>
                   <span className='text-xs text-gray-600 dark:text-day mb-1'>
-                    {'Contact'}
+                    {t.HERO.HOME.CONTACT_BUTTON_DES}
                   </span>
-                  <span className='font-medium'>{'Contact'}</span>
+                  <span className='font-medium'>{t.HERO.HOME.CONTACT_BUTTON}</span>
                 </span>
               </button>
             </Link>
@@ -58,9 +60,11 @@ const Hero = ({ blockMap }) => {
                 <ClipboardCheckIcon className='inline-block text-gray-600 dark:text-day h-7 w-7' />
                 <span className='ml-4 flex items-start flex-col leading-none'>
                   <span className='text-xs text-gray-600 dark:text-day mb-1'>
-                    {'Copied RSS URL'}
+                    {t.HERO.RSS_BUTTON_DES_COPIED}
                   </span>
-                  <span className='font-medium'>{'Copied'}</span>
+                  <span className='font-medium'>
+                    {t.HERO.RSS_BUTTON_COPIED}
+                  </span>
                 </span>
               </button>
             ) : (
@@ -71,9 +75,9 @@ const Hero = ({ blockMap }) => {
                 <RssIcon className='inline-block text-gray-600 dark:text-day h-7 w-7' />
                 <span className='ml-4 flex items-start flex-col leading-none'>
                   <span className='text-xs text-gray-600 dark:text-day mb-1'>
-                    {'RSS Reader'}
+                    {t.HERO.RSS_BUTTON_DES}
                   </span>
-                  <span className='font-medium'>{'Subscribe'}</span>
+                  <span className='font-medium'>{t.HERO.HOME.RSS_BUTTON}</span>
                 </span>
               </button>
             )}

@@ -1,4 +1,5 @@
 import BLOG from '@/blog.config'
+import formatDate from '@/lib/formatDate'
 // import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
@@ -180,7 +181,10 @@ const Layout = ({
           {frontMatter.type[0] !== 'Page' && (
             <nav className='flex mt-5 mb-10 items-start text-gray-500 dark:text-gray-400'>
               <div className='mr-2 mb-4 md:ml-0'>
-                {frontMatter?.date?.start_date || frontMatter.createdTime}
+                {formatDate(
+                  frontMatter?.date?.start_date || frontMatter.createdTime,
+                  locale
+                )}
               </div>
               {frontMatter.tags && (
                 <div className='flex flex-nowrap max-w-full overflow-x-auto article-tags'>

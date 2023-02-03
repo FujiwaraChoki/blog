@@ -16,8 +16,7 @@ const Pagination = ({ page, showNext }) => {
       className={`flex font-medium text-black dark:text-gray-100 ${additionalClassName}`}
     >
       {currentPage !== 1 && (
-        <Link
-          scroll={false}
+        <Link scroll={false}
           href={
             currentPage - 1 === 1
               ? `${BLOG.path || '/'}`
@@ -26,7 +25,8 @@ const Pagination = ({ page, showNext }) => {
         >
           <a>
             <button rel='prev' className='block cursor-pointer'>
-              <ChevronLeftIcon className='inline-block mb-1 h-5 w-5' /> {'Prev'}
+              <ChevronLeftIcon className='inline-block mb-1 h-5 w-5' />{' '}
+              {t.PAGINATION.PREV}
             </button>
           </a>
         </Link>
@@ -35,7 +35,7 @@ const Pagination = ({ page, showNext }) => {
         <Link href={`/page/${currentPage + 1}`} scroll={false}>
           <a>
             <button rel='next' className='block cursor-pointer'>
-              {'Next'}{' '}
+              {t.PAGINATION.NEXT}{' '}
               <ChevronRightIcon className='inline-block mb-1 h-5 w-5' />
             </button>
           </a>

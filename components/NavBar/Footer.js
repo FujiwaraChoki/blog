@@ -25,21 +25,21 @@ const Footer = ({ fullWidth }) => {
   const links = [
     {
       id: 0,
-      name: 'About',
+      name: t.NAV.ABOUT,
       to: BLOG.path || '/about',
       icon: <UserIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     },
     {
       id: 1,
-      name: 'Friends',
+      name: t.NAV.FRINEDS,
       to: '/friends',
       icon: <UsersIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.friends
     },
     {
       id: 2,
-      name: 'Contact',
+      name: t.NAV.CONTACT,
       to: '/contact',
       icon: <MailIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.contact
@@ -84,14 +84,11 @@ const Footer = ({ fullWidth }) => {
         <div className='text-gray-400 text-xs font-light py-4'>
           © {from === y || !from ? y : `${from} - ${y}`} | {BLOG.author}
           <p className='md:float-right'>
-            {'This site is licensed under the '}
-            <a
-              className='underline'
-              href={`${'https://creativecommons.org/licenses/by-sa/4.0/'}`}
-            >
-              {'CC BY-SA 4.0'}
+            {t.FOOTER.COPYRIGHT_START}
+            <a className='underline' href={`${t.FOOTER.COPYRIGHT_LINK}`}>
+              {t.FOOTER.COPYRIGHT_NAME}
             </a>
-            {'.'}
+            {t.FOOTER.COPYRIGHT_END}
           </p>
         </div>
       </footer>
