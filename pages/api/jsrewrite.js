@@ -1,4 +1,4 @@
-import { getBlocksMaps } from "../lib/getBlocksMaps";
+import { getBlocksMaps } from "../../lib/getBlocksMaps";
 
 module.exports = async (req, res) => {
   let { url } = req.query;

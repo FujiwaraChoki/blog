@@ -1,4 +1,4 @@
-import BLOG from "../blog.config";
+import BLOG from "../../blog.config";
 
 export default async function sendtotg(req, res) {
   const TG_TOKEN = BLOG.telegramToken;

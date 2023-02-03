@@ -1,4 +1,4 @@
-import { getBlocksMaps } from "../lib/getBlocksMaps";
+import { getBlocksMaps } from "../../lib/getBlocksMaps";
 
 async function getBlockItem(path) {
   const { pagesJson, siteConfigObj } = await getBlocksMaps();
