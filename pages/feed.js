@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/notion'
 import { generateRss } from '@/lib/rss'
 // import { generateRss } from '@/lib/rssContent'
-export async function getServerSideProps({ res }) {
+export async function getStaticProps({ res }) {
   res.setHeader('Content-Type', 'text/xml')
   const posts = await getAllPosts({ onlyNewsletter: false })
   const latestPosts = posts.slice(0, 10)
