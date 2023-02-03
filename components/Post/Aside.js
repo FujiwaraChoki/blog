@@ -1,8 +1,8 @@
-import BLOG from "../blog.config";
+import BLOG from "../../blog.config";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import WechatPay from "../components/Post/WechatPay";
+import WechatPay from "../../components/Post/WechatPay";
 import {
   ThumbUpIcon,
   ChevronLeftIcon,
