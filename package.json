@@ -14,13 +14,12 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "format": "prettier --write .",
     "lint": "next lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "prepare": "husky install",
-    "prod": "next export"
+    "prepare": "husky install"
   },
   "dependencies": {
     "feed": "^4.2.2",
