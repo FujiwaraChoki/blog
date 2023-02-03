@@ -1,12 +1,8 @@
 import { useState } from 'react'
-import { lang } from '@/lib/lang'
-import { useRouter } from 'next/router'
 
 function Contact() {
   const [showResult, setShowResult] = useState(false)
   const [submitting, setSubmitting] = useState(false)
-  const { locale } = useRouter()
-  const t = lang[locale]
 
   const sentMessage = async (event) => {
     event.preventDefault()
@@ -36,7 +32,7 @@ function Contact() {
       setSubmitting(false)
       setShowResult(true)
     } else {
-      alert(t.CONTACT.FAILED_MESSAGE)
+      alert('Sorry, sending failed, please contact me directly on Telegram.')
     }
   }
   return (
@@ -44,7 +40,7 @@ function Contact() {
       {showResult ? (
         <div>
           <p className='max-w-screen-md font-bold md:text-lg text-center mx-auto'>
-            {t.CONTACT.SUCCESS_MESSAGE}
+            {'Message sent, I will reply to you as soon as possible.'}
           </p>
         </div>
       ) : (
@@ -58,7 +54,7 @@ function Contact() {
               id='name'
               type='text'
               required
-              placeholder={t.CONTACT.FORM_USERNAME}
+              placeholder={'Your Name'}
               className='block w-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white dark:focus:bg-gray-600'
             />
           </div>
@@ -68,7 +64,7 @@ function Contact() {
               id='mail'
               type='text'
               required
-              placeholder={t.CONTACT.FORM_EMAIL}
+              placeholder={'Your Email*'}
               className='block w-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white dark:focus:bg-gray-600'
             />
           </div>
@@ -79,7 +75,7 @@ function Contact() {
               id='message'
               type='text'
               required
-              placeholder={t.CONTACT.FORM_CONTENT}
+              placeholder={'Message'}
               className='h-64 block w-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white dark:focus:bg-gray-600'
             ></textarea>
           </div>
@@ -116,11 +112,11 @@ function Contact() {
                 type='submit'
                 className='inline-block bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-center rounded-lg outline-none transition duration-100 px-8 py-3'
               >
-                <p className='text-gray-400 h-5'>{t.CONTACT.SEND_BUTTON}</p>
+                <p className='text-gray-400 h-5'>{'Send'}</p>
               </button>
             )}
             <p className='mb-2 text-gray-400 text-xs'>
-              {t.CONTACT.FORM_EMAIL_REQUIRED}
+              {'*You can fill in other valid contact methods'}
             </p>
           </div>
         </form>

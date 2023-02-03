@@ -15,13 +15,11 @@ import {
 } from '@heroicons/react/outline'
 import Social from '../Common/Social.js'
 import ThemeSwitcher from './ThemeSwitcher.js'
-import LangSwitcher from './LangSwitcher.js'
 import { motion } from 'framer-motion'
 
 const NavBar = () => {
   const router = useRouter()
   const { locale } = useRouter()
-  const t = lang[locale]
   const [showMenu, setShowMenu] = useState(false)
 
   let activeMenu = ''
@@ -34,49 +32,49 @@ const NavBar = () => {
   const links = [
     {
       id: 0,
-      name: t.NAV.INDEX,
+      name: 'Home',
       to: BLOG.path || '/',
       icon: <HomeIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     },
     {
       id: 1,
-      name: t.NAV.NEWSLETTER,
+      name: 'Newsletter',
       to: '/newsletter',
       icon: <NewspaperIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.newsletter
     },
     {
       id: 2,
-      name: t.NAV.NOTES,
+      name: 'Notes',
       to: '/notes',
       icon: <CollectionIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.notes
     },
     {
       id: 3,
-      name: t.NAV.ABOUT,
+      name: 'About',
       to: '/about',
       icon: <AcademicCapIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.about
     },
     {
       id: 4,
-      name: t.NAV.PROJECTS,
+      name: 'Projects',
       to: '/projects',
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.projects
     },
     {
       id: 5,
-      name: t.NAV.VIDEOS,
+      name: 'Videos',
       to: '/vids',
       icon: <VideoCameraIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.videos
     },
     {
       id: 6,
-      name: t.NAV.SEARCH,
+      name: 'Search',
       to: '/search',
       icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
@@ -106,7 +104,6 @@ const NavBar = () => {
       </ul>
 
       <ThemeSwitcher />
-      <LangSwitcher />
 
       {/* Mobile Phone Menu */}
       <div className='md:hidden mr-2 block '>
