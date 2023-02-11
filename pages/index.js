@@ -4,6 +4,7 @@ import Hero from '../components/Hero/Home'
 import Pagination from '../components/Pagination'
 import { getAllPosts, getPostBlocks } from '../lib/notion'
 import BLOG from '../blog.config'
+import Script from 'next/script'
 
 export async function getStaticProps() {
   const posts = await getAllPosts({ onlyPost: true })
@@ -36,11 +37,13 @@ export async function getStaticProps() {
 const blog = ({ postsToShow, page, showNext, blockMap }) => {
   return (
     <Container title={BLOG.title} description={BLOG.description}>
-      <script
-        async
-        src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782'
-        crossOrigin='anonymous'
-      ></script>
+      <Script
+        id="Adsense-id"
+        data-ad-client="ca-pub-9323484475971782"
+        async="true"
+        strategy="beforeInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      />
       <Hero blockMap={blockMap} />
       {postsToShow.map((post) => (
         <BlogPost key={post.id} post={post} />
