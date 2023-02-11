@@ -58,8 +58,15 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <Scripts />
+      <Script
+        id="Adsense-id"
+        data-ad-client="ca-pub-9323484475971782"
+        async="true"
+        strategy="beforeInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      />
       </Head>
+      <Scripts />
       {BLOG.isProd && BLOG?.analytics?.provider === 'ackee' && (
         <Ackee
           ackeeServerUrl={BLOG.analytics.ackeeConfig.dataAckeeServer}
@@ -74,8 +81,9 @@ function MyApp({ Component, pageProps }) {
         />
         <TransitionEffect>
           <div
-            className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
-              }`}
+            className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${
+              BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
+            }`}
           >
             <Component {...pageProps} />
           </div>
