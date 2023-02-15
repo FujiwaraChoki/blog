@@ -23,8 +23,7 @@ import NProgress from 'nprogress'
 import '../styles/nprogress.css'
 import Header from '../components/NavBar/Header'
 import Footer from '../components/NavBar/Footer'
-import Head from 'next/head'
-import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react';
 
 const Ackee = dynamic(() => import('../components/Common/Ackee'), {
   ssr: false
@@ -58,6 +57,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Scripts />
+      <Analytics />
       {BLOG.isProd && BLOG?.analytics?.provider === 'ackee' && (
         <Ackee
           ackeeServerUrl={BLOG.analytics.ackeeConfig.dataAckeeServer}
