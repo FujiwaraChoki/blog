@@ -61,7 +61,6 @@ const Scripts = () => (
       async="true"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782"
       crossOrigin="anonymous"
-      strategy="beforeInteractive"
     />
   </>
 )
