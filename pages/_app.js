@@ -58,11 +58,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-      <Script
-      async="true"
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782"
-      crossOrigin="anonymous"
-    />
+        <Script
+          async="true"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782"
+          crossOrigin="anonymous"
+        />
       </Head>
       <Scripts />
       {BLOG.isProd && BLOG?.analytics?.provider === 'ackee' && (
@@ -79,9 +79,8 @@ function MyApp({ Component, pageProps }) {
         />
         <TransitionEffect>
           <div
-            className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${
-              BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
-            }`}
+            className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
+              }`}
           >
             <Component {...pageProps} />
           </div>
