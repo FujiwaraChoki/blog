@@ -59,12 +59,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
       <Script
-        id="Adsense-id"
-        data-ad-client="ca-pub-9323484475971782"
-        async="true"
-        strategy="beforeInteractive"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      />
+      async="true"
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782"
+      crossOrigin="anonymous"
+    />
       </Head>
       <Scripts />
       {BLOG.isProd && BLOG?.analytics?.provider === 'ackee' && (

@@ -37,13 +37,6 @@ export async function getStaticProps() {
 const blog = ({ postsToShow, page, showNext, blockMap }) => {
   return (
     <Container title={BLOG.title} description={BLOG.description}>
-      <Script
-        id="Adsense-id"
-        data-ad-client="ca-pub-9323484475971782"
-        async="true"
-        strategy="beforeInteractive"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      />
       <Hero blockMap={blockMap} />
       {postsToShow.map((post) => (
         <BlogPost key={post.id} post={post} />
