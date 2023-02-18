@@ -56,6 +56,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <meta name="monetag" content="b3735a0755a416352dfdb3dd6ccfeaaf"></meta>
       <Scripts />
       <Analytics />
       {BLOG.isProd && BLOG?.analytics?.provider === 'ackee' && (
