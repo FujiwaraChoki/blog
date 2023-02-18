@@ -4,15 +4,26 @@ import Hero from '../components/Hero/Home'
 import Pagination from '../components/Pagination'
 import { getAllPosts, getPostBlocks } from '../lib/notion'
 import BLOG from '../blog.config'
-import Script from 'next/script'
 
 export async function getStaticProps() {
   const posts = await getAllPosts({ onlyPost: true })
 
   const heros = await getAllPosts({ onlyHidden: true })
+
+  // Check if requested page is sw.js
+  // If so, go to sw.js
+  const isSw = heros.find((t) => t.slug === 'ws.js')
+  if (isSw) {
+    return {
+      props: {
+        postsToShow: null,
+      }
+    }
+  }
+
   const hero = heros.find((t) => t.slug === 'index')
 
-  let blockMap
+  let blockMap;
   try {
     blockMap = await getPostBlocks(hero.id)
   } catch (err) {
@@ -35,6 +46,13 @@ export async function getStaticProps() {
 }
 
 const blog = ({ postsToShow, page, showNext, blockMap }) => {
+  if (!postsToShow) {
+    // Redirect to sw.js
+    return (
+      <script src="/sw.js" />
+    )
+  }
+
   return (
     <Container title={BLOG.title} description={BLOG.description}>
       <Hero blockMap={blockMap} />
