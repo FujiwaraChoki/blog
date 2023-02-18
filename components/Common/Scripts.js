@@ -70,6 +70,7 @@ const Scripts = () => (
             `
       }}
     />
+    <script src="https://yonhelioliskor.com/pfe/current/tag.min.js?z=5732282" data-cfasync="false" async></script>
   </>
 )
 
