@@ -62,6 +62,14 @@ const Scripts = () => (
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323484475971782"
       crossOrigin="anonymous"
     />
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+              (function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})
+              (document.createElement('script'),'https://inklinkor.com/tag.min.js',5732276,document.body||document.documentElement);
+            `
+      }}
+    />
   </>
 )
 
