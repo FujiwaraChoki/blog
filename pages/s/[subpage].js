@@ -2,6 +2,7 @@ import BLOG from "../../blog.config";
 import Layout from "../../layouts/layout";
 import { getAllPosts, getPostBlocks } from "../../lib/notion";
 import { useRouter } from "next/router";
+import serialize from "serialize-javascript";
 
 import { getAllPagesInSpace, getPageBreadcrumbs, idToUuid } from "notion-utils";
 import { defaultMapPageUrl } from "react-notion-x";
@@ -98,7 +99,10 @@ export async function getStaticProps({ params: { subpage } }) {
     return { props: { post: null, blockMap: null } };
   } else {
     return {
-      props: { post, blockMap },
+      props: {
+        post: serialize(post),
+        blockMap: blockMap,
+      },
       revalidate: 1,
     };
   }
