@@ -35,6 +35,7 @@ export async function getStaticProps() {
 }
 
 const blog = ({ postsToShow, page, showNext, blockMap }) => {
+  //
   return (
     <Container title={BLOG.title} description={BLOG.description}>
       <Hero blockMap={blockMap} />
