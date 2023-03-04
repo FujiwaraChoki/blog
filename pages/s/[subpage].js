@@ -68,7 +68,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { subpage } }) {
   const posts = await getAllPosts({ onlyNewsletter: false });
 
-  let blockMap, post;
+  let blockMap;
+  let post;
   try {
     blockMap = await getPostBlocks(subpage);
     const id = idToUuid(subpage);
