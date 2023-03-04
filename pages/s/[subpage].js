@@ -56,7 +56,7 @@ export async function getStaticPaths() {
     .filter((v) => !noPostsIds.includes(v) || !heroIds.includes(v));
 
   return {
-    paths: [],
+    paths,
     fallback: true,
   };
   // return {
