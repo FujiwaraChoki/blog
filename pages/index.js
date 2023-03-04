@@ -3,6 +3,7 @@ import BlogPost from "../components/BlogPost";
 import Hero from "../components/Hero/Home";
 import Pagination from "../components/Pagination";
 import { getAllPosts, getPostBlocks } from "../lib/notion";
+// Just a test
 import BLOG from "../blog.config";
 
 export async function getStaticProps() {
