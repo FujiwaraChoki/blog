@@ -2,7 +2,6 @@ import BLOG from "../../blog.config";
 import Layout from "../../layouts/layout";
 import { getAllPosts, getPostBlocks } from "../../lib/notion";
 import { useRouter } from "next/router";
-import serialize from "serialize-javascript";
 
 import { getAllPagesInSpace, getPageBreadcrumbs, idToUuid } from "notion-utils";
 import { defaultMapPageUrl } from "react-notion-x";
@@ -57,7 +56,7 @@ export async function getStaticPaths() {
     .filter((v) => !noPostsIds.includes(v) || !heroIds.includes(v));
 
   return {
-    paths,
+    paths: [],
     fallback: true,
   };
   // return {
@@ -100,8 +99,8 @@ export async function getStaticProps({ params: { subpage } }) {
   } else {
     return {
       props: {
-        post: serialize(post),
-        blockMap: blockMap,
+        post,
+        blockMap,
       },
       revalidate: 1,
     };
