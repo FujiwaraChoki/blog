@@ -57,7 +57,7 @@ export async function getStaticPaths() {
 
   // This was the issue, I was returning something, but it should be an empty array
   return {
-    paths: [],
+    paths,
     fallback: true,
   };
   // return {
