@@ -2,7 +2,7 @@ const BLOG = {
   title: "Sami Hindi | Blog",
   author: "Sami Hindi",
   email: "sami@samihindi.com",
-  link: "https://blog.samihindi.com",
+  link: "https://samihindi.com",
   newsletter: "Sami Hindis Blog",
   description: "The Blog of Sami Hindi, built with Notion and Next.js",
   lang: "en-US", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
