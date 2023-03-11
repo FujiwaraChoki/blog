@@ -38,18 +38,6 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/notes/:pathname',
-        destination: '/api/htmlrewrite?pathname=:pathname'
-      },
-      {
-        source: '/notes/:pathname/b/:slug*',
-        destination: '/api/htmlrewrite?pathname=:pathname&slug=/b/:slug*'
-      },
-      {
-        source: '/notes/:pathname/x/:slug*',
-        destination: '/api/htmlrewrite?pathname=:pathname&slug=/x/:slug*'
-      },
-      {
         source: '/api/:slug*',
         destination: 'https://www.craft.do/api/:slug*'
       },

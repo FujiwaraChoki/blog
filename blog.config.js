@@ -16,7 +16,6 @@ const BLOG = {
   sortByDate: true,
   pagesShow: {
     newsletter: false,
-    notes: false,
     projects: true,
     contact: true,
     books: false,

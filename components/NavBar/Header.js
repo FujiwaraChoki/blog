@@ -47,13 +47,6 @@ const NavBar = () => {
       show: BLOG.pagesShow.newsletter
     },
     {
-      id: 2,
-      name: t.NAV.NOTES,
-      to: '/notes',
-      icon: <CollectionIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.notes
-    },
-    {
       id: 3,
       name: t.NAV.ABOUT,
       to: '/about',
