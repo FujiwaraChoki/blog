@@ -56,10 +56,18 @@ export async function getStaticPaths() {
     .filter((v) => !noPostsIds.includes(v) || !heroIds.includes(v));
 
   // This was the issue, I was returning something, but it should be an empty array
-  return {
-    paths,
-    fallback: true,
-  };
+  try {
+    return {
+      paths: [...paths],
+      fallback: true,
+    };
+  } catch (err) {
+    return {
+      paths: [],
+      fallback: true,
+    }
+  }
+
   // return {
   //   paths: [],
   //   fallback: true
