@@ -29,7 +29,7 @@ const BLOG = {
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   ogImageGenerateHost:
     "https://og-zl.vercel.app/api/default?border=none&description=Tech%20%26%20Sec%20%26%20News&siteName=Sami%20Hindis%20Blog&summary=Full-Stack%20Software%20Engineer&theme=light&title=Sami%20Hindi", // The link to generate OG image, don't end with a slash
-  defaultCover: "https://source.unsplash.com/random/800x600?", // The default cover image of your blog, don't end with a slash
+  defaultCover: "https://source.unsplash.com/random/800x600", // The default cover image of your blog, don't end with a slash
   socialLink: {
     twitter: "https://twitter.com/chokifujiwara",
     github: "https://github.com/FujiwaraChoki",

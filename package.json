@@ -1,16 +1,16 @@
 {
-  "name": "blog",
+  "name": "notionic",
   "version": "1.0.1",
-  "homepage": "https://samihindi.com",
+  "homepage": "https://zuolan.me",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FujiwaraChoki/blog.git"
+    "url": "https://github.com/izuolan/notionic.git"
   },
   "author": {
-    "name": "Sami Hindi",
-    "email": "sami@samihindi.com",
-    "url": "https://samihindi.com"
+    "name": "Zuo Lan",
+    "email": "i@zuolan.me",
+    "url": "https://zuolan.me"
   },
   "scripts": {
     "dev": "next dev",
@@ -19,18 +19,16 @@
     "format": "prettier --write .",
     "lint": "next lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "prepare": "husky install",
-    "prod": "next export"
+    "prepare": "husky install"
   },
   "dependencies": {
-    "@vercel/analytics": "^0.1.9",
     "feed": "^4.2.2",
     "framer-motion": "6.4.3",
-    "got": "^12.0.2",
+    "got": "^12.5.3",
     "next": "^12.1.0",
     "next-themes": "^0.1.1",
-    "notion-client": "^6.13.0",
-    "notion-utils": "^6.12.9",
+    "notion-client": "^6.15.8",
+    "notion-utils": "^6.15.8",
     "nprogress": "^0.2.0",
     "p-map": "^5.5.0",
     "p-memoize": "^6.0.1",
@@ -38,8 +36,7 @@
     "prism-theme-vars": "^0.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-notion-x": "^6.13.3",
-    "serialize-javascript": "^6.0.1",
+    "react-notion-x": "^6.15.8",
     "sharp": "^0.30.5",
     "use-ackee": "^3.0.0"
   },

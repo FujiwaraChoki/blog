@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import BLOG from '../blog.config'
+import BLOG from '@/blog.config'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {

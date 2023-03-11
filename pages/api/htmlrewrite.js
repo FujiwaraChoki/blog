@@ -1,40 +1,40 @@
-import { getBlocksMaps } from "../../lib/getBlocksMaps";
+import { getBlocksMaps } from '@/lib/getBlocksMaps'
 
 async function getBlockItem(path) {
-  const { pagesJson, siteConfigObj } = await getBlocksMaps();
+  const { pagesJson, siteConfigObj } = await getBlocksMaps()
 
   for (let i = 0; i < pagesJson.length; i++) {
-    const blockItem = pagesJson[i];
+    const blockItem = pagesJson[i]
     if (path === blockItem.slug) {
-      return { blockItem, siteConfigObj };
+      return { blockItem, siteConfigObj }
     }
   }
-  return { blockItem: null, siteConfigObj };
+  return { blockItem: null, siteConfigObj }
 }
 
 module.exports = async (req, res) => {
   // const { pathname, slug } = req.query
-  const { pathname } = req.query;
-  let realPath;
-  if (pathname.includes("/b/")) {
-    realPath = pathname.split("/b/")[0];
-  } else if (pathname.includes("/x/")) {
-    realPath = pathname.split("/x/")[0];
+  const { pathname } = req.query
+  let realPath
+  if (pathname.includes('/b/')) {
+    realPath = pathname.split('/b/')[0]
+  } else if (pathname.includes('/x/')) {
+    realPath = pathname.split('/x/')[0]
   } else {
-    realPath = pathname;
+    realPath = pathname
   }
   // console.log('realPath: ', realPath)
   // console.log('slug: ', slug)
 
-  const { blockItem, siteConfigObj } = await getBlockItem(realPath);
+  const { blockItem, siteConfigObj } = await getBlockItem(realPath)
   if (blockItem === null) {
-    res.statusCode = 404;
+    res.statusCode = 404
     res.end(
-      "Notes Not Found, Make sure you have the correct pathname and check your Craft.do setting page."
-    );
-    return;
+      'Notes Not Found, Make sure you have the correct pathname and check your Craft.do setting page.'
+    )
+    return
   }
-  const craftUrl = blockItem.url;
+  const craftUrl = blockItem.url
   // console.log('htmlrewrite craftUrl: ', craftUrl)
 
   const bodyStr = `
@@ -42,47 +42,47 @@ module.exports = async (req, res) => {
     <input type="checkbox" class="navigation__checkbox" id="nav-toggle" />
     <label for="nav-toggle" class="navigation__button">
       <a aria-label="toggle navigation menu" class="navigation__logo">
-        <img alt="logo" class="logo" src="${siteConfigObj["Site Logo"]}" />
+        <img alt="logo" class="logo" src="${siteConfigObj['Site Logo']}" />
       </a>
     </label>
     <div class="navigation__background"></div>
 
-    <p class="navigation__title">${siteConfigObj["Site Name"]}</p>
+    <p class="navigation__title">${siteConfigObj['Site Name']}</p>
 
     <nav class="navigation__nav" role="navigation">
       <ul class="navigation__list">
         <li class="navigation__item">
-          <a href="/" class="navigation__link">${siteConfigObj["Home Menu Text"]}</a>
+          <a href="/" class="navigation__link">${siteConfigObj['Home Menu Text']}</a>
         </li>
         <li class="navigation__item">
-          <a href="/notes" class="navigation__link">${siteConfigObj["Archive Menu Text"]}</a>
+          <a href="/notes" class="navigation__link">${siteConfigObj['Archive Menu Text']}</a>
         </li>
         <li class="navigation__item">
-          <a href="/about" target="_blank" class="navigation__link">${siteConfigObj["About Menu Text"]}</a>
+          <a href="/about" target="_blank" class="navigation__link">${siteConfigObj['About Menu Text']}</a>
         </li>
       </ul>
-      <p class="footer">${siteConfigObj["Footer Text"]}</p>
+      <p class="footer">${siteConfigObj['Footer Text']}</p>
     </nav>
 
     <div class="navigation__icon">
-      <a target="_blank" href=${siteConfigObj["First Social Link"]}>
-        <img alt="Telegram" src="${siteConfigObj["First Social Icon"]}" />
+      <a target="_blank" href=${siteConfigObj['First Social Link']}>
+        <img alt="Telegram" src="${siteConfigObj['First Social Icon']}" />
       </a>
-      <a target="_blank" href=${siteConfigObj["Second Social Link"]}>
-        <img alt="Twitter" src="${siteConfigObj["Second Social Icon"]}" />
+      <a target="_blank" href=${siteConfigObj['Second Social Link']}>
+        <img alt="Twitter" src="${siteConfigObj['Second Social Icon']}" />
       </a>
-      <a target="_blank" href=${siteConfigObj["Third Social Link"]}>
-        <img alt="Giithub" src="${siteConfigObj["Third Social Icon"]}" />
+      <a target="_blank" href=${siteConfigObj['Third Social Link']}>
+        <img alt="Giithub" src="${siteConfigObj['Third Social Icon']}" />
       </a>
     </div>
 
   </div>
-  `;
+  `
 
-  const response = await fetch(craftUrl);
-  const originResText = await response.text();
+  const response = await fetch(craftUrl)
+  const originResText = await response.text()
   const modifyResText = originResText
-    .replace('<meta name="robots" content="noindex">', "")
+    .replace('<meta name="robots" content="noindex">', '')
     .replace(
       '<link rel="icon" href="/share/static/favicon.ico">',
       '<link rel="icon" href="/favicon.svg">'
@@ -92,8 +92,8 @@ module.exports = async (req, res) => {
       '<link rel="apple-touch-icon" href="/favicon.png">'
     )
     .replace(
-      '<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">',
-      ""
+      '<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">',
+      ''
     )
     .replace(
       '<meta name="luki:api-endpoint" content="https://www.craft.do/api">',
@@ -101,14 +101,14 @@ module.exports = async (req, res) => {
     )
     .replace(
       '<script async src="https://www.craft.do/assets/js/analytics2.js"></script>',
-      ""
+      ''
     )
-    .replace("</head><body", headStr + "</head><body")
-    .replace("</body></html>", bodyStr + "</body></html>");
+    .replace('</head><body', headStr + '</head><body')
+    .replace('</body></html>', bodyStr + '</body></html>')
 
-  res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.send(modifyResText);
-};
+  res.setHeader('Content-Type', 'text/html; charset=utf-8')
+  res.send(modifyResText)
+}
 
 const headStr = `
   <style>
@@ -252,4 +252,4 @@ const headStr = `
       font-size: 0.8rem;
     }
   </style>
-`;
+`

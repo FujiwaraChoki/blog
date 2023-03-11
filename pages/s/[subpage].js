@@ -1,13 +1,13 @@
-import BLOG from '../../blog.config'
-import Layout from '../../layouts/layout'
-import { getAllPosts, getPostBlocks } from '../../lib/notion'
+import BLOG from '@/blog.config'
+import Layout from '@/layouts/layout'
+import { getAllPosts, getPostBlocks } from '@/lib/notion'
 import { useRouter } from 'next/router'
 
 import { getAllPagesInSpace, getPageBreadcrumbs, idToUuid } from 'notion-utils'
 import { defaultMapPageUrl } from 'react-notion-x'
 
-import Loading from '../../components/Loading'
-import NotFound from '../../components/NotFound'
+import Loading from '@/components/Loading'
+import NotFound from '@/components/NotFound'
 
 const Post = ({ post, blockMap }) => {
   const router = useRouter()
