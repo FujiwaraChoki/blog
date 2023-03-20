@@ -10,6 +10,12 @@ export async function getStaticProps() {
   const heros = await getAllPosts({ onlyHidden: true })
   const hero = heros.find((t) => t.slug === 'newsletter')
 
+  const adsFile = heros.find((t) => t.slug === 'ads.txt');
+
+  if (adsFile) {
+    return null;
+  }
+
   let blockMap
   try {
     blockMap = await getPostBlocks(hero.id)
