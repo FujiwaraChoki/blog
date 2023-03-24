@@ -15,8 +15,8 @@ function Contact() {
     //   setSubmitting(false)
     //   setShowResult(true)
     // }, 3000)
-
-    const tgUrl = '/api/sendtotg'
+    // /api/sendtotg
+    const tgUrl = 'https://formspree.io/f/mzbqzodp'
     const res = await fetch(tgUrl, {
       body: JSON.stringify({
         name: event.target.name.value,
