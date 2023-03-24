@@ -67,13 +67,12 @@ function MyApp({ Component, pageProps }) {
           fullWidth={pageProps.post ? pageProps.post.fullWidth : false}
         />
         <TransitionEffect>
-            <div
-              className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${
-                BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
+          <div
+            className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
               }`}
-            >
-              <Component {...pageProps} />
-            </div>
+          >
+            <Component {...pageProps} />
+          </div>
         </TransitionEffect>
         <Footer fullWidth={pageProps.post ? pageProps.post.fullWidth : false} />
       </ThemeProvider>
