@@ -6,6 +6,7 @@ export default function search({ tags, posts }) {
 }
 export async function getStaticProps() {
   const posts = await getAllPosts({ onlyNewsletter: false })
+
   const tags = getAllTagsFromPosts(posts)
   return {
     props: {
