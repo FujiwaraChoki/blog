@@ -22,7 +22,7 @@ module.exports = {
     'react/prop-types': 'off',
     'space-before-function-paren': 'off',
     'multiline-ternary': 'off',
-    'semi': 'always',
+    'semi': 0,
   },
   globals: {
     React: true
