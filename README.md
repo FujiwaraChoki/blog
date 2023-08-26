@@ -1,6 +1,6 @@
 # fuji.codes
 
-(fuji.codes)[https://fuji.codes] is my personal blog built with [Notionic](https://notionic.vercel.app).
+[fuji.codes](https://fuji.codes) is my personal blog built with [Notionic](https://notionic.vercel.app).
 
 ## Features
 
