@@ -1,27 +1,27 @@
-import BLOG from '@/blog.config'
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import BLOG from '@/blog.config';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
-import WechatPay from '@/components/Post/WechatPay'
-import { ThumbUpIcon, ChevronLeftIcon, ArrowUpIcon } from '@heroicons/react/outline'
+import WechatPay from '@/components/Post/WechatPay';
+import { ThumbUpIcon, ChevronLeftIcon, ArrowUpIcon } from '@heroicons/react/outline';
 
 const Aside = ({ subPageTitle, frontMatter }) => {
-  const [showPay, setShowPay] = useState(false)
-  const [showButton, setShowButton] = useState(false)
-  const [showSubPageTitle, setShowSubPageTitle] = useState(false)
+  const [showPay, setShowPay] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const [showSubPageTitle, setShowSubPageTitle] = useState(false);
 
   useEffect(() => {
     if (frontMatter.title !== subPageTitle) {
-      setShowSubPageTitle(true)
+      setShowSubPageTitle(true);
     }
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 900) {
-        setShowButton(true)
+        setShowButton(true);
       } else {
-        setShowButton(false)
+        setShowButton(false);
       }
-    })
-  }, [frontMatter, subPageTitle])
+    });
+  }, [frontMatter, subPageTitle]);
   return (
     <>
       <aside className='hidden sticky md:flex md:flex-col md:items-center md:self-start md:ml-8 md:inset-y-1/2'>
@@ -65,7 +65,7 @@ const Aside = ({ subPageTitle, frontMatter }) => {
         </button>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Aside
+export default Aside;

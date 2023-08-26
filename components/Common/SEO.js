@@ -1,22 +1,21 @@
-import BLOG from '@/blog.config'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import BLOG from '@/blog.config';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const SEO = ({ meta }) => {
-  const ogImage = `https://${BLOG.ogImageGenerateHost}/api/default?logo=${
-    BLOG.link
-  }/favicon.png&siteName=${encodeURIComponent(
-    BLOG.title?.trim()
-  )}&description=${encodeURIComponent(
-    BLOG.description?.trim()
-  )}&title=${encodeURIComponent(
-    meta.title?.trim()
-  )}&summary=${encodeURIComponent(
-    meta.description?.trim()
-  )}&theme=light&border=solid`
+  const ogImage = `https://${BLOG.ogImageGenerateHost}/api/default?logo=${BLOG.link
+    }/favicon.png&siteName=${encodeURIComponent(
+      BLOG.title?.trim()
+    )}&description=${encodeURIComponent(
+      BLOG.description?.trim()
+    )}&title=${encodeURIComponent(
+      meta.title?.trim()
+    )}&summary=${encodeURIComponent(
+      meta.description?.trim()
+    )}&theme=light&border=solid`;
 
-  const router = useRouter()
-  const url = BLOG.path.length ? `${BLOG.link}/${BLOG.path}` : BLOG.link
+  const router = useRouter();
+  const url = BLOG.path.length ? `${BLOG.link}/${BLOG.path}` : BLOG.link;
   return (
     <Head>
       <title>{meta.title}</title>
@@ -62,7 +61,7 @@ const SEO = ({ meta }) => {
         </>
       )}
     </Head>
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;

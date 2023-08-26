@@ -1,21 +1,21 @@
-import BLOG from '@/blog.config'
-import { lang } from '@/lib/lang'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { ExternalLinkIcon } from '@heroicons/react/outline'
-import Link from 'next/link'
+import BLOG from '@/blog.config';
+import { lang } from '@/lib/lang';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { ExternalLinkIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
 
 export default function Loading({ notionSlug }) {
-  const { locale } = useRouter()
-  const [showNotion, setshowNotion] = useState(false)
+  const { locale } = useRouter();
+  const [showNotion, setshowNotion] = useState(false);
 
   if (notionSlug) {
     setTimeout(() => {
-      setshowNotion(true)
-    }, 3000)
+      setshowNotion(true);
+    }, 3000);
   }
 
-  const t = lang[locale]
+  const t = lang[locale];
   return (
     <div className='py-6 sm:py-8 lg:py-12'>
       <div className='max-w-screen-2xl px-4 md:px-8 mx-auto'>
@@ -53,7 +53,7 @@ export default function Loading({ notionSlug }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // export default Loading

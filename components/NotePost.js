@@ -1,9 +1,9 @@
-import BLOG from '@/blog.config.js'
-import Link from 'next/link'
-import ImageFallback from './Common/ImageFallback.js'
+import BLOG from '@/blog.config.js';
+import Link from 'next/link';
+import ImageFallback from './Common/ImageFallback.js';
 
 const NotePost = ({ note }) => {
-  const craftSlug = note.url.slice(23)
+  const craftSlug = note.url.slice(23);
   return (
     <Link passHref href={`/notes/${note.slug}`}>
       <a key={craftSlug} className='mb-10 group h-60 flex items-end bg-gray-100 rounded-lg overflow-hidden relative p-4'>
@@ -20,7 +20,7 @@ const NotePost = ({ note }) => {
         </div>
       </a>
     </Link>
-  )
-}
+  );
+};
 
-export default NotePost
+export default NotePost;

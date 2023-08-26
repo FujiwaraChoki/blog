@@ -1,5 +1,5 @@
 // https://react-svgr.com/playground/
-import * as React from 'react'
+import * as React from 'react';
 
 const NotionAvatar = (props) => (
   <svg
@@ -38,6 +38,6 @@ const NotionAvatar = (props) => (
       fillRule='evenodd'
     />
   </svg>
-)
+);
 
-export default NotionAvatar
+export default NotionAvatar;

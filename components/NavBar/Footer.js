@@ -1,31 +1,31 @@
-import Link from 'next/link'
-import BLOG from '@/blog.config'
-import { lang } from '@/lib/lang'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import BLOG from '@/blog.config';
+import { lang } from '@/lib/lang';
+import { useRouter } from 'next/router';
 import {
   UserIcon,
   UsersIcon,
   BookOpenIcon,
   MailIcon
-} from '@heroicons/react/outline'
-import Social from '../Common/Social.js'
-import { motion } from 'framer-motion'
+} from '@heroicons/react/outline';
+import Social from '../Common/Social.js';
+import { motion } from 'framer-motion';
 
 const Footer = ({ fullWidth }) => {
-  const router = useRouter()
-  const { locale } = useRouter()
-  const t = lang[locale]
+  const router = useRouter();
+  const { locale } = useRouter();
+  const t = lang[locale];
 
-  let activeMenu = ''
+  let activeMenu = '';
   if (router.query.slug) {
-    activeMenu = '/' + router.query.slug
+    activeMenu = '/' + router.query.slug;
   } else {
-    activeMenu = router.pathname
+    activeMenu = router.pathname;
   }
 
-  const d = new Date()
-  const y = d.getFullYear()
-  const from = +BLOG.since
+  const d = new Date();
+  const y = d.getFullYear();
+  const from = +BLOG.since;
 
   const links = [
     {
@@ -56,13 +56,12 @@ const Footer = ({ fullWidth }) => {
       icon: <MailIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.contact
     }
-  ]
+  ];
 
   return (
     <motion.div
-      className={`mt-6 flex-shrink-0 m-auto w-full text-gray-600 dark:text-gray-300 transition-all ${
-        !fullWidth ? 'max-w-3xl md:px-8' : 'px-4 md:px-24'
-      }`}
+      className={`mt-6 flex-shrink-0 m-auto w-full text-gray-600 dark:text-gray-300 transition-all ${!fullWidth ? 'max-w-3xl md:px-8' : 'px-4 md:px-24'
+        }`}
     >
       <footer className='max-w-screen-2xl px-4 md:px-8 mx-auto'>
         <div className='flex flex-col md:flex-row justify-between items-center border-b dark:border-gray-600 py-1'>
@@ -72,11 +71,10 @@ const Footer = ({ fullWidth }) => {
                 link.show && (
                   <Link passHref key={link.id} href={link.to} scroll={false}>
                     <li key={link.id}
-                      className={`${
-                        activeMenu === link.to
+                      className={`${activeMenu === link.to
                           ? 'bg-gray-200 dark:bg-gray-700'
                           : ''
-                      } hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}
+                        } hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}
                     >
                       <div className='font-light'>
                         {link.icon}
@@ -104,7 +102,7 @@ const Footer = ({ fullWidth }) => {
         </div>
       </footer>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

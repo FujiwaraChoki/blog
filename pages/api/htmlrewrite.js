@@ -1,40 +1,40 @@
-import { getBlocksMaps } from '@/lib/getBlocksMaps'
+import { getBlocksMaps } from '@/lib/getBlocksMaps';
 
 async function getBlockItem(path) {
-  const { pagesJson, siteConfigObj } = await getBlocksMaps()
+  const { pagesJson, siteConfigObj } = await getBlocksMaps();
 
   for (let i = 0; i < pagesJson.length; i++) {
-    const blockItem = pagesJson[i]
+    const blockItem = pagesJson[i];
     if (path === blockItem.slug) {
-      return { blockItem, siteConfigObj }
+      return { blockItem, siteConfigObj };
     }
   }
-  return { blockItem: null, siteConfigObj }
+  return { blockItem: null, siteConfigObj };
 }
 
 module.exports = async (req, res) => {
   // const { pathname, slug } = req.query
-  const { pathname } = req.query
-  let realPath
+  const { pathname } = req.query;
+  let realPath;
   if (pathname.includes('/b/')) {
-    realPath = pathname.split('/b/')[0]
+    realPath = pathname.split('/b/')[0];
   } else if (pathname.includes('/x/')) {
-    realPath = pathname.split('/x/')[0]
+    realPath = pathname.split('/x/')[0];
   } else {
-    realPath = pathname
+    realPath = pathname;
   }
   // console.log('realPath: ', realPath)
   // console.log('slug: ', slug)
 
-  const { blockItem, siteConfigObj } = await getBlockItem(realPath)
+  const { blockItem, siteConfigObj } = await getBlockItem(realPath);
   if (blockItem === null) {
-    res.statusCode = 404
+    res.statusCode = 404;
     res.end(
       'Notes Not Found, Make sure you have the correct pathname and check your Craft.do setting page.'
-    )
-    return
+    );
+    return;
   }
-  const craftUrl = blockItem.url
+  const craftUrl = blockItem.url;
   // console.log('htmlrewrite craftUrl: ', craftUrl)
 
   const bodyStr = `
@@ -77,10 +77,10 @@ module.exports = async (req, res) => {
     </div>
 
   </div>
-  `
+  `;
 
-  const response = await fetch(craftUrl)
-  const originResText = await response.text()
+  const response = await fetch(craftUrl);
+  const originResText = await response.text();
   const modifyResText = originResText
     .replace('<meta name="robots" content="noindex">', '')
     .replace(
@@ -104,11 +104,11 @@ module.exports = async (req, res) => {
       ''
     )
     .replace('</head><body', headStr + '</head><body')
-    .replace('</body></html>', bodyStr + '</body></html>')
+    .replace('</body></html>', bodyStr + '</body></html>');
 
-  res.setHeader('Content-Type', 'text/html; charset=utf-8')
-  res.send(modifyResText)
-}
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.send(modifyResText);
+};
 
 const headStr = `
   <style>
@@ -252,4 +252,4 @@ const headStr = `
       font-size: 0.8rem;
     }
   </style>
-`
+`;

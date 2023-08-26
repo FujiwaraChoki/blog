@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import BLOG from '@/blog.config'
+import Link from 'next/link';
+import BLOG from '@/blog.config';
 
 const Social = () => {
   return (
@@ -59,7 +59,7 @@ const Social = () => {
         </a>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default Social
+export default Social;

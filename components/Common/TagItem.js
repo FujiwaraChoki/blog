@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const TagItem = ({ tag }) => (
   <Link href={`/tag/${encodeURIComponent(tag)}`} scroll={false}>
@@ -8,6 +8,6 @@ const TagItem = ({ tag }) => (
       </p>
     </a>
   </Link>
-)
+);
 
-export default TagItem
+export default TagItem;

@@ -1,22 +1,22 @@
-import { useState } from 'react'
-import { lang } from '@/lib/lang'
-import { useRouter } from 'next/router'
+import { useState } from 'react';
+import { lang } from '@/lib/lang';
+import { useRouter } from 'next/router';
 
 function Contact() {
-  const [showResult, setShowResult] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
-  const { locale } = useRouter()
-  const t = lang[locale]
+  const [showResult, setShowResult] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const { locale } = useRouter();
+  const t = lang[locale];
 
   const sentMessage = async (event) => {
-    event.preventDefault()
-    setSubmitting(true)
+    event.preventDefault();
+    setSubmitting(true);
     // setTimeout(() => {
     //   setSubmitting(false)
     //   setShowResult(true)
     // }, 3000)
     // /api/sendtotg
-    const tgUrl = 'https://formspree.io/f/mzbqzodp'
+    const tgUrl = 'https://formspree.io/f/mzbqzodp';
     const res = await fetch(tgUrl, {
       body: JSON.stringify({
         name: event.target.name.value,
@@ -27,18 +27,18 @@ function Contact() {
         'Content-Type': 'application/json'
       },
       method: 'POST'
-    })
+    });
     // await res.json()
-    const result = await res.json()
-    const status = result.status
-    console.log('status:', status)
+    const result = await res.json();
+    const status = result.status;
+    console.log('status:', status);
     if (status === 'Success') {
-      setSubmitting(false)
-      setShowResult(true)
+      setSubmitting(false);
+      setShowResult(true);
     } else {
-      alert(t.CONTACT.FAILED_MESSAGE)
+      alert(t.CONTACT.FAILED_MESSAGE);
     }
-  }
+  };
   return (
     <>
       {showResult ? (
@@ -126,7 +126,7 @@ function Contact() {
         </form>
       )}
     </>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

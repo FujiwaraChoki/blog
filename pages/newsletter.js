@@ -1,26 +1,26 @@
-import Container from '@/components/Container'
-import BlogPost from '@/components/BlogPost'
-import NewsletterHero from '@/components/Hero/Newsletter'
-import { getAllPosts, getPostBlocks } from '@/lib/notion'
-import BLOG from '@/blog.config'
+import Container from '@/components/Container';
+import BlogPost from '@/components/BlogPost';
+import NewsletterHero from '@/components/Hero/Newsletter';
+import { getAllPosts, getPostBlocks } from '@/lib/notion';
+import BLOG from '@/blog.config';
 
 export async function getStaticProps() {
-  const posts = await getAllPosts({ onlyNewsletter: true })
+  const posts = await getAllPosts({ onlyNewsletter: true });
 
-  const heros = await getAllPosts({ onlyHidden: true })
-  const hero = heros.find((t) => t.slug === 'newsletter')
+  const heros = await getAllPosts({ onlyHidden: true });
+  const hero = heros.find((t) => t.slug === 'newsletter');
 
-  const adsFile = heros.find((t) => t.slug === 'ads.txt')
+  const adsFile = heros.find((t) => t.slug === 'ads.txt');
 
   if (adsFile) {
-    return null
+    return null;
   }
 
-  let blockMap
+  let blockMap;
   try {
-    blockMap = await getPostBlocks(hero.id)
+    blockMap = await getPostBlocks(hero.id);
   } catch (err) {
-    console.error(err)
+    console.error(err);
     // return { props: { post: null, blockMap: null } }
   }
 
@@ -30,7 +30,7 @@ export async function getStaticProps() {
       blockMap
     },
     revalidate: 1
-  }
+  };
 }
 
 const newsletter = ({ posts, blockMap }) => {
@@ -41,7 +41,7 @@ const newsletter = ({ posts, blockMap }) => {
         <BlogPost key={post.id} post={post} />
       ))}
     </Container>
-  )
-}
+  );
+};
 
-export default newsletter
+export default newsletter;

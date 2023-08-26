@@ -1,5 +1,5 @@
 // https://react-svgr.com/playground/
-import * as React from 'react'
+import * as React from 'react';
 
 const Avatar = (props) => (
   <svg
@@ -62,6 +62,6 @@ const Avatar = (props) => (
       </path>
     </clipPath> */}
   </svg>
-)
+);
 
-export default Avatar
+export default Avatar;

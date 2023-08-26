@@ -1,23 +1,23 @@
-import { useState } from 'react'
-import BlogPost from '@/components/BlogPost'
-import Container from '@/components/Container'
-import Tags from '@/components/Common/Tags'
-import PropTypes from 'prop-types'
-import { lang } from '@/lib/lang'
-import { useRouter } from 'next/router'
+import { useState } from 'react';
+import BlogPost from '@/components/BlogPost';
+import Container from '@/components/Container';
+import Tags from '@/components/Common/Tags';
+import PropTypes from 'prop-types';
+import { lang } from '@/lib/lang';
+import { useRouter } from 'next/router';
 
 const SearchLayout = ({ tags, posts, currentTag }) => {
-  const [searchValue, setSearchValue] = useState('')
-  const { locale } = useRouter()
-  const t = lang[locale]
+  const [searchValue, setSearchValue] = useState('');
+  const { locale } = useRouter();
+  const t = lang[locale];
 
-  let filteredBlogPosts = []
+  let filteredBlogPosts = [];
   if (posts) {
     filteredBlogPosts = posts.filter((post) => {
-      const tagContent = post.tags ? post.tags.join(' ') : ''
-      const searchContent = post.title + post.summary + tagContent
-      return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-    })
+      const tagContent = post.tags ? post.tags.join(' ') : '';
+      const searchContent = post.title + post.summary + tagContent;
+      return searchContent.toLowerCase().includes(searchValue.toLowerCase());
+    });
   }
 
   return (
@@ -60,11 +60,11 @@ const SearchLayout = ({ tags, posts, currentTag }) => {
         ))}
       </div>
     </Container>
-  )
-}
+  );
+};
 SearchLayout.propTypes = {
   posts: PropTypes.array.isRequired,
   tags: PropTypes.object.isRequired,
   currentTag: PropTypes.string
-}
-export default SearchLayout
+};
+export default SearchLayout;

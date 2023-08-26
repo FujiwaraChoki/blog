@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
-import { SunIcon, MoonIcon } from '@heroicons/react/outline'
-import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react';
+import { SunIcon, MoonIcon } from '@heroicons/react/outline';
+import { useTheme } from 'next-themes';
 
 const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme()
-  const [hasMounted, setHasMounted] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true)
-  }, [])
+    setHasMounted(true);
+  }, []);
   return (
     <>
       <button
@@ -28,7 +28,7 @@ const ThemeSwitcher = () => {
         )}
       </button>
     </>
-  )
-}
+  );
+};
 
-export default ThemeSwitcher
+export default ThemeSwitcher;

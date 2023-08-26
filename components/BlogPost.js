@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import BLOG from '@/blog.config'
-import formatDate from '@/lib/formatDate'
-import { useRouter } from 'next/router'
-import { motion } from 'framer-motion'
+import Link from 'next/link';
+import Image from 'next/image';
+import BLOG from '@/blog.config';
+import formatDate from '@/lib/formatDate';
+import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 const BlogPost = ({ post }) => {
-  const { locale } = useRouter()
+  const { locale } = useRouter();
   return (
     <motion.div>
       <Link passHref href={`${BLOG.path}/${post.slug}`} scroll={false}>
@@ -35,7 +35,7 @@ const BlogPost = ({ post }) => {
         </article>
       </Link>
     </motion.div>
-  )
-}
+  );
+};
 
-export default BlogPost
+export default BlogPost;

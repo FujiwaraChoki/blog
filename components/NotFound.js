@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import { lang } from '@/lib/lang'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { lang } from '@/lib/lang';
+import { useRouter } from 'next/router';
 
 const Page404 = ({ statusCode }) => {
-  const { locale } = useRouter()
-  const t = lang[locale]
+  const { locale } = useRouter();
+  const t = lang[locale];
   return (
     <div className='py-6 sm:py-8 lg:py-12'>
       <div className='max-w-screen-2xl px-4 md:px-8 mx-auto'>
@@ -45,7 +45,7 @@ const Page404 = ({ statusCode }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page404
+export default Page404;

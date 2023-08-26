@@ -1,16 +1,16 @@
-import Link from 'next/link'
-import BLOG from '@/blog.config'
-import { lang } from '@/lib/lang'
-import { useRouter } from 'next/router'
-import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/outline'
+import Link from 'next/link';
+import BLOG from '@/blog.config';
+import { lang } from '@/lib/lang';
+import { useRouter } from 'next/router';
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/outline';
 
 const Pagination = ({ page, showNext }) => {
-  const { locale } = useRouter()
-  const t = lang[locale]
-  const currentPage = +page
-  let additionalClassName = 'justify-between'
-  if (currentPage === 1 && showNext) additionalClassName = 'justify-end'
-  if (currentPage !== 1 && !showNext) additionalClassName = 'justify-start'
+  const { locale } = useRouter();
+  const t = lang[locale];
+  const currentPage = +page;
+  let additionalClassName = 'justify-between';
+  if (currentPage === 1 && showNext) additionalClassName = 'justify-end';
+  if (currentPage !== 1 && !showNext) additionalClassName = 'justify-start';
   return (
     <div
       className={`flex font-medium text-black dark:text-gray-100 ${additionalClassName}`}
@@ -42,7 +42,7 @@ const Pagination = ({ page, showNext }) => {
         </Link>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;

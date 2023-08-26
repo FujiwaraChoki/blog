@@ -1,21 +1,21 @@
-import BLOG from '@/blog.config'
-import formatDate from '@/lib/formatDate'
+import BLOG from '@/blog.config';
+import formatDate from '@/lib/formatDate';
 // import Image from 'next/image'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { NotionRenderer } from 'react-notion-x'
-import { getPageTitle } from 'notion-utils'
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { NotionRenderer } from 'react-notion-x';
+import { getPageTitle } from 'notion-utils';
 
-import Aside from '@/components/Post/Aside'
-import Comments from '@/components/Post/Comments'
-import Container from '@/components/Container'
-import PostFooter from '@/components/Post/PostFooter'
-import TagItem from '@/components/Common/TagItem'
+import Aside from '@/components/Post/Aside';
+import Comments from '@/components/Post/Comments';
+import Container from '@/components/Container';
+import PostFooter from '@/components/Post/PostFooter';
+import TagItem from '@/components/Common/TagItem';
 
-import { ChevronLeftIcon } from '@heroicons/react/outline'
-import { motion } from 'framer-motion'
+import { ChevronLeftIcon } from '@heroicons/react/outline';
+import { motion } from 'framer-motion';
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(async (m) => {
@@ -29,14 +29,14 @@ const Code = dynamic(() =>
       import('prismjs/components/prism-yaml.js'),
       import('prismjs/components/prism-javascript.js'),
       import('prismjs/components/prism-typescript.js')
-    ])
-    return m.Code
+    ]);
+    return m.Code;
   }), { ssr: true }
-)
+);
 
 const Collection = dynamic(() =>
   import('react-notion-x/build/third-party/collection').then((m) => m.Collection), { ssr: true }
-)
+);
 
 // const Equation = dynamic(() =>
 //   import('react-notion-x/build/third-party/equation').then((m) => m.Equation), { ssr: true }
@@ -50,85 +50,85 @@ const Collection = dynamic(() =>
 // Watch DOM changes, detail here: https://github.com/tangly1024/NotionNext/pull/227
 function domWatcher(subPage) {
   // Select nodes that need to observe the change
-  const targetNode = document?.getElementsByTagName('article')[0]
+  const targetNode = document?.getElementsByTagName('article')[0];
   const config = {
     attributes: true,
     childList: true,
     subtree: true
-  }
+  };
   // The callback function executed when observing the change
   const mutationCallback = (mutations) => {
     for (const mutation of mutations) {
-      const type = mutation.type
+      const type = mutation.type;
       switch (type) {
         case 'childList':
           if (mutation.target.className === 'notion-code-copy') {
-            delRepeatCode(mutation.target, subPage)
+            delRepeatCode(mutation.target, subPage);
           } else if (mutation.target.className?.indexOf('language-') > -1) {
-            const copyCode = mutation.target.parentElement?.firstElementChild
+            const copyCode = mutation.target.parentElement?.firstElementChild;
             if (copyCode) {
-              delRepeatCode(copyCode, subPage)
+              delRepeatCode(copyCode, subPage);
             }
           }
           // console.log('A child node has been added or removed.')
-          break
+          break;
         case 'attributes':
           // console.log(`The ${mutation.attributeName} attribute was modified.`)
           // console.log(mutation.attributeName)
-          break
+          break;
         case 'subtree':
           // console.log('The subtree was modified.')
-          break
+          break;
         default:
-          break
+          break;
       }
     }
-  }
-  const observer = new MutationObserver(mutationCallback)
-  observer.observe(targetNode, config)
+  };
+  const observer = new MutationObserver(mutationCallback);
+  observer.observe(targetNode, config);
   // observer.disconnect()
 }
 
 function delRepeatCode(codeCopy, subPage) {
-  const codeEnd = codeCopy.parentElement.lastElementChild
-  const length = codeEnd.childNodes.length
-  const codeLast = codeEnd.lastChild
-  const codeSecondLast = codeEnd.childNodes[length - 2]
+  const codeEnd = codeCopy.parentElement.lastElementChild;
+  const length = codeEnd.childNodes.length;
+  const codeLast = codeEnd.lastChild;
+  const codeSecondLast = codeEnd.childNodes[length - 2];
   // console.log('codeSecondLast', codeSecondLast)
   // console.log('codeLast', codeLast)
   if (subPage && codeEnd.childNodes.length > 1 && codeLast.nodeName === '#text' && codeSecondLast.nodeName === '#text') {
-    codeLast.nodeValue = null
+    codeLast.nodeValue = null;
   }
   if (!subPage && codeEnd.childNodes.length > 1 && codeLast.nodeName === '#text') {
-    codeLast.nodeValue = null
+    codeLast.nodeValue = null;
   }
 }
 
 const Layout = ({ children, blockMap, frontMatter, fullWidth = false, subPage = false }) => {
-  const [showSubPageTitle, setShowSubPageTitle] = useState(false)
-  const { locale } = useRouter()
+  const [showSubPageTitle, setShowSubPageTitle] = useState(false);
+  const { locale } = useRouter();
 
   const mapPageUrl = (id) => {
     // console.log('mapPageUrl', BLOG.lang.split('-')[0])
     if (locale === BLOG.lang.split('-')[0]) {
-      return '/s/' + id.replace(/-/g, '')
+      return '/s/' + id.replace(/-/g, '');
     } else {
-      return '/' + locale + '/s/' + id.replace(/-/g, '')
+      return '/' + locale + '/s/' + id.replace(/-/g, '');
     }
-  }
+  };
 
   // console.log('notion page', {
   //   frontMatter,
   //   blockMap
   // })
 
-  const subPageTitle = getPageTitle(blockMap)
+  const subPageTitle = getPageTitle(blockMap);
   useEffect(() => {
     if (frontMatter.title !== subPageTitle) {
-      setShowSubPageTitle(true)
+      setShowSubPageTitle(true);
     }
-    domWatcher(subPage)
-  }, [frontMatter, subPageTitle, subPage])
+    domWatcher(subPage);
+  }, [frontMatter, subPageTitle, subPage]);
 
   return (
     <Container
@@ -191,7 +191,7 @@ const Layout = ({ children, blockMap, frontMatter, fullWidth = false, subPage = 
       <PostFooter />
       <Comments frontMatter={frontMatter} />
     </Container>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

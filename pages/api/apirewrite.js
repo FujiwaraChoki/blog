@@ -1,22 +1,22 @@
 // const fetch = require('node-fetch')
 
 module.exports = async (req, res) => {
-  let { url } = req.query
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST,PUT')
-  res.setHeader('Content-Type', 'application/json; charset=utf-8')
+  let { url } = req.query;
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST,PUT');
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.setHeader(
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
+  );
   if (req.query && req.query.url) {
-    url = 'https://www.craft.do/api/' + req.query.url
+    url = 'https://www.craft.do/api/' + req.query.url;
   }
 
   try {
-    const response = await fetch(url)
-    res.send(await response.json())
+    const response = await fetch(url);
+    res.send(await response.json());
 
     // const originResText = await response.text()
     // const modifyResText = originResText
@@ -26,6 +26,6 @@ module.exports = async (req, res) => {
     // console.log(modifyResText.toString())
     // res.send(await modifyResText.toString())
   } catch (e) {
-    res.send(e)
+    res.send(e);
   }
-}
+};

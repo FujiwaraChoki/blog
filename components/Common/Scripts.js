@@ -1,5 +1,5 @@
-import Script from 'next/script'
-import BLOG from '@/blog.config'
+import Script from 'next/script';
+import BLOG from '@/blog.config';
 
 const Scripts = () => (
   <>
@@ -58,6 +58,6 @@ const Scripts = () => (
       </Script>
     )} */}
   </>
-)
+);
 
-export default Scripts
+export default Scripts;
