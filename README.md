@@ -14,7 +14,6 @@
 - SEO and Open Graph optimization
 - Newsletter support
 - Contact Form
-- Telegram bot integration
 
 ## Reference & License
 
