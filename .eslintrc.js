@@ -23,6 +23,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     'multiline-ternary': 'off',
     'semi': 0,
+    'indent': 'off'
   },
   globals: {
     React: true
