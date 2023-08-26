@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef } from 'react'
-import Link from 'next/link'
-import BLOG from '../../blog.config'
-import { lang } from '../../lib/lang'
-import { useRouter } from 'next/router'
+import { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
+import BLOG from '../../blog.config';
+import { lang } from '../../lib/lang';
+import { useRouter } from 'next/router';
 import {
   HomeIcon,
   NewspaperIcon,
@@ -11,23 +11,23 @@ import {
   MenuIcon,
   AcademicCapIcon,
   VideoCameraIcon
-} from '@heroicons/react/outline'
-import Social from '../Common/Social.js'
-import ThemeSwitcher from './ThemeSwitcher.js'
-import LangSwitcher from './LangSwitcher.js'
-import { motion } from 'framer-motion'
+} from '@heroicons/react/outline';
+import Social from '../Common/Social.js';
+import ThemeSwitcher from './ThemeSwitcher.js';
+import LangSwitcher from './LangSwitcher.js';
+import { motion } from 'framer-motion';
 
 const NavBar = () => {
-  const router = useRouter()
-  const { locale } = useRouter()
-  const t = lang[locale]
-  const [showMenu, setShowMenu] = useState(false)
+  const router = useRouter();
+  const { locale } = useRouter();
+  const t = lang[locale];
+  const [showMenu, setShowMenu] = useState(false);
 
-  let activeMenu = ''
+  let activeMenu = '';
   if (router.query.slug) {
-    activeMenu = '/' + router.query.slug
+    activeMenu = '/' + router.query.slug;
   } else {
-    activeMenu = router.pathname
+    activeMenu = router.pathname;
   }
 
   const links = [
@@ -59,13 +59,14 @@ const NavBar = () => {
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.projects
     },
+    /*
     {
       id: 5,
       name: t.NAV.VIDEOS,
       to: '/vids',
       icon: <VideoCameraIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.videos
-    },
+    },*/
     {
       id: 6,
       name: t.NAV.SEARCH,
@@ -73,7 +74,7 @@ const NavBar = () => {
       icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     }
-  ]
+  ];
   return (
     <motion.div className='flex'>
       {/* Desktop Menu */}
@@ -97,7 +98,7 @@ const NavBar = () => {
       </ul>
 
       <ThemeSwitcher />
-      <LangSwitcher />
+      <LangSwitcher />;
 
       {/* Mobile Phone Menu */}
       <div className='md:hidden mr-2 block '>
@@ -133,43 +134,43 @@ const NavBar = () => {
           </div>
         )}
       </div>
-    </motion.div>
-  )
-}
+    </motion.div >
+  );
+};
 
 const Header = ({ navBarTitle, fullWidth }) => {
-  const [showTitle, setShowTitle] = useState(false)
-  const useSticky = !BLOG.autoCollapsedNavBar
-  const navRef = useRef(null)
-  const sentinalRef = useRef([])
+  const [showTitle, setShowTitle] = useState(false);
+  const useSticky = !BLOG.autoCollapsedNavBar;
+  const navRef = useRef(null);
+  const sentinalRef = useRef([]);
   const handler = ([entry]) => {
     if (navRef && navRef.current && useSticky) {
       if (!entry.isIntersecting && entry !== undefined) {
-        navRef.current?.classList.add('sticky-nav-full')
+        navRef.current?.classList.add('sticky-nav-full');
       } else {
-        navRef.current?.classList.remove('sticky-nav-full')
+        navRef.current?.classList.remove('sticky-nav-full');
       }
     } else {
-      navRef.current?.classList.add('remove-sticky')
+      navRef.current?.classList.add('remove-sticky');
     }
-  }
+  };
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 100) {
-        setShowTitle(true)
+        setShowTitle(true);
       } else {
-        setShowTitle(false)
+        setShowTitle(false);
       }
-    })
+    });
 
-    const obvserver = new window.IntersectionObserver(handler)
-    obvserver.observe(sentinalRef.current)
+    const obvserver = new window.IntersectionObserver(handler);
+    obvserver.observe(sentinalRef.current);
     // Don't touch this, I have no idea how it works XD
     // return () => {
     //   if (sentinalRef.current) obvserver.unobserve(sentinalRef.current)
     // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sentinalRef])
+  }, [sentinalRef]);
   return (
     <>
       <div className='observer-element h-4 md:h-12' ref={sentinalRef}></div>
@@ -217,7 +218,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
         <NavBar />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
