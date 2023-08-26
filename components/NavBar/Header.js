@@ -9,8 +9,7 @@ import {
   SparklesIcon,
   SearchIcon,
   MenuIcon,
-  AcademicCapIcon,
-  VideoCameraIcon
+  AcademicCapIcon
 } from '@heroicons/react/outline';
 import Social from '../Common/Social.js';
 import ThemeSwitcher from './ThemeSwitcher.js';
@@ -59,14 +58,6 @@ const NavBar = () => {
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.projects
     },
-    /*
-    {
-      id: 5,
-      name: t.NAV.VIDEOS,
-      to: '/vids',
-      icon: <VideoCameraIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.videos
-    },*/
     {
       id: 6,
       name: t.NAV.SEARCH,
