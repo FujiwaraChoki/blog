@@ -1,10 +1,10 @@
 const BLOG = {
-  title: "Sami Hindi | Blog",
-  author: "Sami Hindi",
-  email: "sami@samihindi.com",
-  link: "https://samihindi.com",
-  newsletter: "Sami Hindis Blog",
-  description: "The Blog of Sami Hindi, built with Notion and Next.js",
+  title: "FujiwarChoki | Blog",
+  author: "FujiwarChoki",
+  email: "fujicodes@proton.me",
+  link: "https://fuji.codes",
+  newsletter: "Fuji's Blog",
+  description: "The Blog of Fuji, built with Notion and Next.js",
   lang: "en-US", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   appearance: "auto", // ['light', 'dark', 'auto'],
   font: "sans-serif", // ['sans-serif', 'serif']
@@ -35,7 +35,7 @@ const BLOG = {
     telegram: "https://t.me/bv_crack",
   },
   seo: {
-    keywords: ["Sami Hindi", "GitHub", "Blog"],
+    keywords: ["Fuji Codes", "GitHub", "Blog"],
     googleSiteVerification: "", // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
@@ -46,7 +46,7 @@ const BLOG = {
   telegramChatId: "263895784", // The chat id of your Telegram bot
   telegramChannelUrl: "https://t.me/+sJuxlgstaE82YjRk", // The link of your Telegram channel
   telegramChannelName: "Blog", // The name of your Telegram channel
-  craftConfigShareUrl: 'https://www.craft.do/s/kQtcWqkv98cHhB', // The link to share your craft config
+  craftConfigShareUrl: "https://www.craft.do/s/kQtcWqkv98cHhB", // The link to share your craft config
   analytics: {
     provider: "", // Currently we support Google Analytics, Ackee, Umami and Cloudflare Insights, please fill with 'ga' or 'ackee' or 'umami' or 'cf', leave it empty to disable it.
     ackeeConfig: {
